@@ -13,7 +13,10 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 ## Changelog
 
 07/02/2018 - First commit to add a repository on GitHub.
-07/02/2018 - Second commit to add and introduce a Readme.
+
+07/02/2018 - Second commit to add and introduce a README.
+
+07/02/2018 - Third commit to edit the README.
 
 ## Authors
 
