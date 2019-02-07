@@ -7,12 +7,13 @@ const App = () => (
   <header><h1>Welcome to FMMA!</h1></header>
   <section className="body">
     <section className="intro">     
-    <h3>Find a Martial Arts Gym is here to find your local martial arts gym, whether you are a
+    <p>Find a Martial Arts Gym is here to find your local martial arts gym, whether you are a
        seasoned martial artist, traveller or beginner alike!
-    </h3>
+    </p>
     </section>
     <Gyms />
     <Form />
+    <button>Add your martial arts gym!</button>
   </section>
   <footer>Designed by Chris Hanson</footer>
   </section>

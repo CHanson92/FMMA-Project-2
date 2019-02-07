@@ -1,4 +1,15 @@
 @import 'grid';
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+header {
+  font-family: 'Ubuntu';
+  font-size: 2.5em;
+}
+
+.main {
+  font-family: 'Ubuntu';
+  font-weight: 300;
+}
 
 .form {
   text-align: center;

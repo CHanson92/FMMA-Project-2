@@ -1,7 +1,7 @@
 @mixin maingrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 4em 1fr 5em;
+    grid-template-rows: auto 1fr 5em;
 }
 
 @mixin gridcentered {
