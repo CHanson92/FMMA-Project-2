@@ -18,6 +18,10 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 07/02/2018 - Third commit to edit the README.
 
+07/02/2018 - Fourth commit to separate JSX files & and amended grid files.
+
+07/02/2018 - Fifth commit to edit the README.
+
 ## Authors
 
 * **Chris Hanson** - *Project owner* - [CHanson92](https://github.com/CHanson92)
