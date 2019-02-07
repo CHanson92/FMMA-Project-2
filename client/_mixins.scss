@@ -1,0 +1,22 @@
+@mixin maingrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 4em 1fr 5em;
+}
+
+@mixin gridcentered {
+    justify-self: center;
+    align-self: center;
+}
+
+@mixin body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 5em 1fr 1fr;
+}
+
+@mixin flexcentered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
