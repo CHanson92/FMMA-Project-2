@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
 
 const styles = theme => ({
   container: {
@@ -36,8 +37,7 @@ class TextFields extends React.Component {
 
     return (
     <div>
-        <h3>Want to add your martial arts gym? Add it below!</h3>
-        <form className={classes.container} noValidate autoComplete="off">
+          <FormControl className={classes.formControl}>
             <TextField
             id="outlined-name"
             label="Name"
@@ -63,15 +63,7 @@ class TextFields extends React.Component {
             margin="normal"
             variant="outlined"
             />
-
-            <TextField
-            id="outlined-name"
-            label="Type Of Martial Art"
-            className={classes.textField}
-            margin="normal"
-            variant="outlined"
-            />
-        </form>
+          </FormControl>
       </div>
     );
   }

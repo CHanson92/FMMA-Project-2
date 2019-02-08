@@ -5,22 +5,17 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
-  button: {
-    display: 'block',
-    marginTop: theme.spacing.unit * 2,
-  },
   formControl: {
     margin: theme.spacing.unit,
-    minWidth: 120,
+    minWidth: 200,
   },
 });
 
 class Selector extends React.Component {
   state = {
-    age: '',
+    typeofmartialart: '',
     open: false,
   };
 
@@ -40,32 +35,28 @@ class Selector extends React.Component {
     const { classes } = this.props;
 
     return (
-      <form autoComplete="off">
-        <Button className={classes.button} onClick={this.handleOpen}>
-          Open the select
-        </Button>
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="demo-controlled-open-select">Age</InputLabel>
+          <InputLabel htmlFor="demo-controlled-open-select">Type of Martial Art</InputLabel>
           <Select
             open={this.state.open}
             onClose={this.handleClose}
             onOpen={this.handleOpen}
-            value={this.state.age}
+            value={this.state.typeofmartialart}
             onChange={this.handleChange}
             inputProps={{
-              name: 'age',
+              name: 'typeofmartialart',
               id: 'demo-controlled-open-select',
             }}
           >
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={'judo'}>Judo</MenuItem>
+            <MenuItem value={'bjj'}>Brazilian Jiu-Jitsu</MenuItem>
+            <MenuItem value={'muaythai'}>Muay Thai</MenuItem>
+            <MenuItem value={'submissionwrestling'}>Submission Wrestling</MenuItem>
           </Select>
         </FormControl>
-      </form>
     );
   }
 }

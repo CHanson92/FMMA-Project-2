@@ -11,6 +11,17 @@ header {
   font-weight: 300;
 }
 
-.form {
-  text-align: center;
+form {
+  display: flex;
+  flex-direction: row;
+}
+
+.form > .MuiFormControl-root-1 {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.selectortimepicker {
+  display: flex;
+  flex-flow: column wrap;
 }

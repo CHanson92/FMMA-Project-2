@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
 
 const styles = theme => ({
   container: {
@@ -19,10 +20,10 @@ function TimePicker(props) {
   const { classes } = props;
 
   return (
-    <form className={classes.container} noValidate>
+    <FormControl className={classes.formControl}>
       <TextField
         id="time"
-        label="Alarm clock"
+        label="Session Start Time"
         type="time"
         defaultValue="07:30"
         className={classes.textField}
@@ -33,7 +34,20 @@ function TimePicker(props) {
           step: 300, // 5 min
         }}
       />
-    </form>
+            <TextField
+        id="time"
+        label="Session End Time"
+        type="time"
+        defaultValue="07:30"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+        inputProps={{
+          step: 300, // 5 min
+        }}
+      />
+    </FormControl>
   );
 }
 

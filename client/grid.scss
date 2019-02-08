@@ -27,9 +27,9 @@
       }
         
       .form {
-          @include gridcentered;
           grid-column: 1/4;
           grid-row: 3;
+          justify-self: center;
       }
 
       button {
