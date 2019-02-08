@@ -22,6 +22,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 07/02/2018 - Fifth commit to edit the README.
 
+08/02/2018 - Sixth commit to add search bar, Searchbar, GymInfo & Tabs React files and changed SASS styling.
+
 ## Authors
 
 * **Chris Hanson** - *Project owner* - [CHanson92](https://github.com/CHanson92)
