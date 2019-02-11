@@ -9,6 +9,7 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 * [Meteor.js] - The web framework used.
 * [React] - Used to render the frontend of the project.
 * [MongoDB] - Used as the database.
+* [FuseJS] - Search functionality framework.
 
 ## Changelog
 
@@ -23,6 +24,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 07/02/2018 - Fifth commit to edit the README.
 
 08/02/2018 - Sixth commit to add search bar, Searchbar, GymInfo & Tabs React files and changed SASS styling.
+
+10/02/2018 - Seventh commit to add basic search functionality to searchbar and change around JSX files.
 
 ## Authors
 
