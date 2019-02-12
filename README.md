@@ -13,19 +13,21 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 ## Changelog
 
-07/02/2018 - First commit to add a repository on GitHub.
+07/02/2018 - Added a repository on GitHub.
 
-07/02/2018 - Second commit to add and introduce a README.
+07/02/2018 - Added and introduced a README.
 
-07/02/2018 - Third commit to edit the README.
+07/02/2018 - Edited the README.
 
-07/02/2018 - Fourth commit to separate JSX files & and amended grid files.
+07/02/2018 - Separated JSX files & and amended grid files.
 
-07/02/2018 - Fifth commit to edit the README.
+07/02/2018 - Edited the README.
 
-08/02/2018 - Sixth commit to add search bar, Searchbar, GymInfo & Tabs React files and changed SASS styling.
+08/02/2018 - Added search bar, Searchbar, GymInfo & Tabs React files and changed SASS styling.
 
-10/02/2018 - Seventh commit to add basic search functionality to searchbar and change around JSX files.
+11/02/2018 - Added basic search functionality to searchbar and change around JSX files.
+
+12/02/2018 - Changed the search functionality to accommodate database changes and introduced Material-UI Cards.
 
 ## Authors
 

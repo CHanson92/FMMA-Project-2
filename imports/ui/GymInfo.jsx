@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import Fuse from 'fuse.js';
-import Gym from '../api/gyms';
-import Location from '../api/location';
-import SessionTimes from '../api/sessiontimes';
-import TypeOfMartialArt from '../api/typeofmartialart';
+import FMMA from '../api/fmma';
 
 
 class GymInfo extends Component {
@@ -39,48 +36,53 @@ class GymInfo extends Component {
             maxPatternLength: 32,
             minMatchCharLength: 1,
             keys: [
-            "name",
-            "country"
+            "location"
             ]
         };
-        this.fuse = new Fuse(this.props.locations, options); // "list" is the item array
+        this.fuse = new Fuse(this.props.all, options);
     }
     search(searchTerm) {
-        console.log('searching for: ', searchTerm);
-        console.log('results: ', this.fuse.search(searchTerm));
         this.setState({ results: this.fuse.search(searchTerm)});
     }
+
+
+    displayGyms(gyms) {
+        let displayGym = gyms.map((gym) =>
+            <div>
+                <h2>{gym.name}</h2>
+                <p>{gym.address}</p>
+                {this.displayMartialArtClasses(gym.martialArtClass)}
+            </div>
+        );
+
+        return displayGym
+    }
+
+    displayMartialArtClasses(martialArtClasses) {
+        let martialArtClassDisplay = martialArtClasses.map((martialArtClass) => ( 
+            <div>
+                <p>{martialArtClass.name}</p>
+                {this.displaySessionTimes(martialArtClass.session)}
+            </div>
+        ))
+        return martialArtClassDisplay
+    }
+
+    displaySessionTimes(sessionTimes) {
+        let sessionTimesDisplay = sessionTimes.map((session) =>
+            <div>{session.day} from {session.startTime}-{session.endTime}</div>
+        );
+
+        return sessionTimesDisplay
+    }
+
     render() {
         const results = this.state.results.map((result, i) => {
             return (
                 <div>
-                <p key={i}>{result.name}, {result.country}</p>
+                    <h1 key={i}>{result.location}</h1>
+                    {this.displayGyms(result.gym)}
                 </div>
-            )
-        });
-        const gyms = this.props.all_gyms.map((gym, i) => {
-            return (
-                <li key={i}>{gym.description}</li>
-            )
-        });
-        const locations = this.props.locations.map((location, i) => {
-            return (
-                <li key={i}>{location.name}</li>
-            )
-        });
-
-        const sessions = this.props.sessions.map((sessions, i) => {
-            return (
-                <div key={i}>
-                <li>{sessions.Day}</li>
-                <li>{sessions.StartTime}</li>
-                <li>{sessions.EndTime}</li>
-                </div>
-            )
-        });
-        const martialart = this.props.martialart.map((martialart, i) => {
-            return (
-                <li key={i}>{martialart.MartialArt}</li>
             )
         });
         return (
@@ -93,9 +95,6 @@ class GymInfo extends Component {
 
 export default GymContainer = withTracker(() => {
     return {
-      all_gyms: Gym.find().fetch(),
-      locations: Location.find().fetch(),
-      sessions: SessionTimes.find().fetch(),
-      martialart: TypeOfMartialArt.find().fetch()
+      all: FMMA.find().fetch()
     };
   })(GymInfo);

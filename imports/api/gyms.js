@@ -21,7 +21,7 @@ Meteor.methods({
         if (Gyms.schema.validate(incomingData)) {
             insertGyms(name, location, description)
         } else {
-            console.log("Validation Error")
+            console.log("Validation Errors")
         }
 
     }
