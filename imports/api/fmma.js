@@ -9,13 +9,14 @@ let sessionTypes = new SimpleSchema({
     endTime: {type: String}
 });
 let martialArtClass = new SimpleSchema({
-    name: {type: String},
+    martialArt: {type: String},
     session: Array,
     "session.$": sessionTypes,
 })
 let gym = new SimpleSchema({
     name: {type: String},
     address: {type: String},
+    description: {type: String},
     martialArtClass: Array,
     "martialArtClass.$": martialArtClass
 })
@@ -38,7 +39,6 @@ Meteor.methods({
         } else {
             console.log("Validation Errors")
         }
-
     }
 })
 

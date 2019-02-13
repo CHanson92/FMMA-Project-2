@@ -67,7 +67,6 @@ class FullWidthTabs extends React.Component {
         >
           <TabContainer dir='./LocationSearch'>
           <LocationSearch />
-          <GymCards />
           </TabContainer>
           <TabContainer dir='./Form'>
           <Form />

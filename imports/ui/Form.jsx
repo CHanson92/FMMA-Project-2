@@ -1,23 +1,15 @@
-import React from 'react';
-import TextFields from './TextFields';
-import Selector from './Select';
-import TimePicker from './TimePicker';
-import FormControl from '@material-ui/core/FormControl';
+import React, { Component } from 'react';
+import AddGymForm from './AddGymForm';
 
-const Form = () => (
-  <div className="form">
-    <h3>Want to add your martial arts gym? Add it below!</h3>
-    <form>
-    <FormControl>
-    <TextFields />
-    <div className="selectortimepicker">
-    <Selector />
-    <TimePicker />
-    </div>
-    </FormControl>
-    </form>
-    <button>Add your martial arts gym!</button>
-  </div>
-);
+class Form extends Component {
+  render() {
+    return (
+      <div className="form">
+        <h3>Want to add your martial arts gym? Add it below!</h3>
+        <AddGymForm />
+      </div>
+    )
+  }
+}
 
 export default Form;

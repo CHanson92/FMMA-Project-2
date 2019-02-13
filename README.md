@@ -29,6 +29,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 12/02/2018 - Changed the search functionality to accommodate database changes and introduced Material-UI Cards.
 
+13/02/2018 - Started to try implement the form submission process.
+
 ## Authors
 
 * **Chris Hanson** - *Project owner* - [CHanson92](https://github.com/CHanson92)

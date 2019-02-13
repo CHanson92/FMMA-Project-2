@@ -1,43 +1,70 @@
 import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
 import FMMA from '../imports/api/fmma';
-import Gyms from '../imports/api/gyms';
-import Location from '../imports/api/location';
-import SessionTimes from '../imports/api/sessiontimes';
-import TypeOfMartialArt from '../imports/api/typeofmartialart';
 
 Meteor.startup(() => {
   // If the collections are empty, add some data.
-
-  if (Gyms.find().count() === 0) {
-    insertGyms("name", "location", "description");
-  }
-  if (Location.find().count() === 0) {
-    insertLocation("name");
-  }
-  if (SessionTimes.find().count() === 0) {
-    insertSessionTimes("StartTime", "EndTime");
-  }
-  if (TypeOfMartialArt.find().count() === 0) {
-    insertTypeOfMartialArt("MartialArt");
-  }
   if (FMMA.find().count() === 0) {
-    let newData = {
-      "location": "London",
+    let incomingData = {
+      "location": '',
       "gym": [
         {
-          "name": "Murat's Gyms",
-          "address": "123 London Street",
+          "name": '',
+          "address": '',
+          "description": '',
           "martialArtClass": [
             {
-              "name": "Judo", 
+              "martialArt": '', 
               "session": [
-                {"day": "Monday", "startTime": "12:00", "endTime": "17:00"},
-                {"day": "Wednesday", "startTime": "12:00", "endTime": "17:00"}
+                {"day": '', "startTime": '', "endTime": ''},
+                {"day": '', "startTime": '', "endTime": ''}
               ]
             }]
         }
       ]
     }
-    Meteor.call('FMMA.insertFMMA', (incomingData))
+    Meteor.call('FMMA.insert', (incomingData))
   }
 })
+
+Meteor.methods({
+  'FMMA.insert'(
+    location,
+    gym, 
+    name, 
+    address, 
+    description, 
+    martialArtClass,
+    martialArt, 
+    session,
+    day, 
+    startTime, 
+    endTime
+    ) {
+    check(location, String);
+    check(gym, Array);
+    check(name, String);
+    check(address, String);
+    check(description, String);
+    check(martialArtClass, Array);
+    check(martialArt, String);
+    check(session, Array);
+    check(day, String);
+    check(startTime, String);
+    check(endTime, String);
+ 
+    FMMA.insert({
+      location: location,
+      gym: [],
+      name: gym.name,
+      address: gym.address,
+      description: gym.description,
+      martialArtClass: [],
+      martialArt: gym.martialArtClass.martialArt,
+      session: [],
+      day: gym.martialArtClass.session.day,
+      startTime: gym.martialArtClass.session.startTime,
+      endTime: gym.martialArtClass.session.endTime
+    });
+  }
+});

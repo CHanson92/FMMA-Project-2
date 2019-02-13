@@ -2,14 +2,42 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import Fuse from 'fuse.js';
 import FMMA from '../api/fmma';
+import { withStyles } from '@material-ui/core/styles';
+import classnames from 'classnames';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Collapse from '@material-ui/core/Collapse';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+const styles = theme => ({
+    card: {
+      maxWidth: 400,
+    },
+    actions: {
+      display: 'flex',
+    },
+    expand: {
+      transform: 'rotate(0deg)',
+      marginLeft: 'auto',
+      transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    },
+    expandOpen: {
+      transform: 'rotate(180deg)',
+    },
+});
 
 class GymInfo extends Component {
     constructor(props) {
         super(props);
         this.initSearch = this.initSearch.bind(this);
         this.search = this.search.bind(this);
-        this.state = {results: []}
+        this.state = {results: [], expanded: false }
     }
     componentDidMount() {
         this.initSearch();
@@ -18,6 +46,13 @@ class GymInfo extends Component {
             this.props.toggleSearch();
         }    
     }
+
+
+    handleExpandClick = () => {
+        this.setState(state => ({ expanded: !state.expanded }));
+    };
+
+
     componentDidUpdate() {
         this.initSearch();
         if (this.props.searched) {
@@ -45,13 +80,31 @@ class GymInfo extends Component {
         this.setState({ results: this.fuse.search(searchTerm)});
     }
 
-
     displayGyms(gyms) {
+        const { classes } = this.props;
         let displayGym = gyms.map((gym) =>
             <div>
-                <h2>{gym.name}</h2>
-                <p>{gym.address}</p>
+            <CardHeader
+                title={gym.name}
+                subheader={gym.address}/>
+            <CardContent>
+                <Typography paragraph>
+                {gym.description}
+                </Typography>
+                <CardActions className={classes.actions} disableActionSpacing>
+                    <IconButton
+                        className={classnames(classes.expand, {
+                        [classes.expandOpen]: this.state.expanded,
+                        })}
+                        onClick={this.handleExpandClick}
+                        aria-expanded={this.state.expanded}
+                        aria-label="Show more"
+                    >
+                        <ExpandMoreIcon />
+                    </IconButton>
+                    </CardActions>
                 {this.displayMartialArtClasses(gym.martialArtClass)}
+            </CardContent>
             </div>
         );
 
@@ -60,29 +113,33 @@ class GymInfo extends Component {
 
     displayMartialArtClasses(martialArtClasses) {
         let martialArtClassDisplay = martialArtClasses.map((martialArtClass) => ( 
-            <div>
-                <p>{martialArtClass.name}</p>
-                {this.displaySessionTimes(martialArtClass.session)}
-            </div>
+                <Typography component="p">
+                    <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+                    {martialArtClass.martialArt}
+                        {this.displaySessionTimes(martialArtClass.session)}
+                    </Collapse>
+                </Typography>
         ))
         return martialArtClassDisplay
     }
 
     displaySessionTimes(sessionTimes) {
         let sessionTimesDisplay = sessionTimes.map((session) =>
-            <div>{session.day} from {session.startTime}-{session.endTime}</div>
+            <Typography component="p">
+            {session.day} from {session.startTime}-{session.endTime}
+            </Typography>
         );
 
         return sessionTimesDisplay
     }
 
     render() {
+        const { classes } = this.props;
         const results = this.state.results.map((result, i) => {
             return (
-                <div>
-                    <h1 key={i}>{result.location}</h1>
+                <Card className={classes.card}>
                     {this.displayGyms(result.gym)}
-                </div>
+                </Card>
             )
         });
         return (
@@ -93,8 +150,10 @@ class GymInfo extends Component {
     }
 }
 
+GymInfo = withStyles(styles)(GymInfo);
+
 export default GymContainer = withTracker(() => {
     return {
       all: FMMA.find().fetch()
     };
-  })(GymInfo);
+})(GymInfo);
