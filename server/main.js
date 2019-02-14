@@ -28,6 +28,12 @@ Meteor.startup(() => {
 })
 
 Meteor.methods({
+  'checkIfLocationExists': function (location) {
+      return (Meteor.location.findOne({location: location})) ? true : false;
+  }
+});
+
+Meteor.methods({
   'FMMA.insert'(
     location,
     gym, 

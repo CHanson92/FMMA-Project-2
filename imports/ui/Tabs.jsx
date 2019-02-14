@@ -8,7 +8,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Form from './Form';
 import LocationSearch from './LocationSearch';
-import GymCards from './GymCards';
 
 function TabContainer({ children, dir }) {
   return (

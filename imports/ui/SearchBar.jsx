@@ -63,6 +63,9 @@ const styles = theme => ({
       },
     },
   },
+  button: {
+    margin: theme.spacing.unit,
+  }
 });
 
 function SearchAppBar(props) {

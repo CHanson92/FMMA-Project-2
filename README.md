@@ -31,6 +31,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 13/02/2018 - Started to try implement the form submission process.
 
+14/02/2018 - Changed the form to include a location drop-down and button to add a location if necessary, and to add multiple martial art sessions. Also changed upload button.
+
 ## Authors
 
 * **Chris Hanson** - *Project owner* - [CHanson92](https://github.com/CHanson92)
