@@ -33,6 +33,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 14/02/2018 - Changed the form to include a location drop-down and button to add a location if necessary, and to add multiple martial art sessions. Also changed upload button.
 
+15/02/2018 - Amended the form & schemas so the data gets put into the database correctly, done a little styling changing the colour of the intro.
+
 ## Authors
 
 * **Chris Hanson** - *Project owner* - [CHanson92](https://github.com/CHanson92)

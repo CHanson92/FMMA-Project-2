@@ -63,16 +63,25 @@ class NewGymForm extends Component {
   }
 
   handleGymAdd() {
+    let outgoingData = {
+      "location": this.state.location,
+      "gym": [
+        {
+          "name": this.state.gymName,
+          "address": this.state.gymAddress ,
+          "description": this.state.gymDescription,
+          "martialArtClass": [
+            {
+              "martialArt": this.state.martialArt, 
+              "session": [
+                {"day": this.state.sessionDay, "startTime": this.state.sessionStart, "endTime": this.state.sessionEnd},
+              ]
+            }]
+        }
+      ]
+    }
     Meteor.call(
-      'FMMA.insert',
-      this.state.location, 
-      this.state.gymName, 
-      this.state.gymAddress, 
-      this.state.gymDescription, 
-      this.state.martialArt, 
-      this.state.sessionDay,
-      this.state.sessionStart, 
-      this.state.sessionEnd
+      'FMMA.insert', outgoingData
     )
   }
 
@@ -112,7 +121,6 @@ class NewGymForm extends Component {
   
   render() {
     const { classes } = this.props;
-    console.log(this.state);
     let martialartsessions = [];
     for(let i=0; i < this.state.counter; i++) {
       martialartsessions.push( <div key={i}>
@@ -120,7 +128,7 @@ class NewGymForm extends Component {
         <InputLabel>Martial Art</InputLabel>
         <Select
           value={this.state.martialArt}
-          onChange={this.handleChange}
+          onChange={this.handleChange('martialArt')}
           inputProps={{
             name: 'martialArt',
             id: 'martialArt',
@@ -129,9 +137,9 @@ class NewGymForm extends Component {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={'judo'}>Judo</MenuItem>
-          <MenuItem value={'brazilian jiu-jitsu'}>Brazilian Jiu-Jitsu</MenuItem>
-          <MenuItem value={'muay thai'}>Muay Thai</MenuItem>
+          <MenuItem value={'Judo'}>Judo</MenuItem>
+          <MenuItem value={'Brazilian Jiu-Jitsu'}>Brazilian Jiu-Jitsu</MenuItem>
+          <MenuItem value={'Muay Thai'}>Muay Thai</MenuItem>
         </Select>
         </FormControl>
 
@@ -139,7 +147,7 @@ class NewGymForm extends Component {
         <InputLabel>Day</InputLabel>
         <Select
           value={this.state.sessionDay}
-          onChange={this.handleChange}
+          onChange={this.handleChange('sessionDay')}
           inputProps={{
             name: 'sessionDay',
             id: 'sessionDay',
@@ -189,7 +197,6 @@ class NewGymForm extends Component {
         />
         </div>
       )
-      console.log(martialartsessions);
     }
     return (
       <form>
@@ -287,7 +294,7 @@ class NewGymForm extends Component {
               <InputLabel>Martial Art</InputLabel>
               <Select
                 value={this.state.martialArt}
-                onChange={this.handleChange}
+                onChange={this.handleChange('martialArt')}
                 inputProps={{
                   name: 'martialArt',
                   id: 'martialArt',
@@ -297,7 +304,7 @@ class NewGymForm extends Component {
                   <em>None</em>
                 </MenuItem>
                 <MenuItem value={'judo'}>Judo</MenuItem>
-                <MenuItem value={'brazilian jiu-jitsu'}>Brazilian Jiu-Jitsu</MenuItem>
+                <MenuItem value={'Brazilian Jiu-Jitsu'}>Brazilian Jiu-Jitsu</MenuItem>
                 <MenuItem value={'muay thai'}>Muay Thai</MenuItem>
               </Select>
               </FormControl>
@@ -306,7 +313,7 @@ class NewGymForm extends Component {
               <InputLabel>Day</InputLabel>
               <Select
                 value={this.state.sessionDay}
-                onChange={this.handleChange}
+                onChange={this.handleChange('sessionDay')}
                 inputProps={{
                   name: 'sessionDay',
                   id: 'sessionDay',
@@ -367,7 +374,7 @@ class NewGymForm extends Component {
           </FormControl>
         </div>
         <Button 
-          onSubmit={this.handleGymAdd()}
+          onClick={this.handleGymAdd.bind(this)}
           variant="contained" 
           color="primary" 
           className={classes.button}>
