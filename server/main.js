@@ -33,7 +33,7 @@ Meteor.methods({
 
 Meteor.methods({
   'FMMA.insert'(
-obj
+    obj
     ) {
  
     FMMA.insert({

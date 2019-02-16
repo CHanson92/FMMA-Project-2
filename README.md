@@ -35,6 +35,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 15/02/2018 - Amended the form & schemas so the data gets put into the database correctly, done a little styling changing the colour of the intro.
 
+16/02/2018 - Styling changes to the header and changes to the css grid.
+
 ## Authors
 
 * **Chris Hanson** - *Project owner* - [CHanson92](https://github.com/CHanson92)

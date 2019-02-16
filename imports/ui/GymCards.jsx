@@ -10,6 +10,11 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faIgloo } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faIgloo)
 
 const styles = theme => ({
   card: {
@@ -45,10 +50,10 @@ class GymCard extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Card className={classes.card}>
+      <Card className="GymCard">
         <CardHeader
           title={this.props.gymName}
-          subheader={this.props.address}
+          subheader= {this.props.address}
         />
         <CardContent>
           <Typography component="p">

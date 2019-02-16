@@ -1,18 +1,12 @@
 @mixin maingrid {
     display: grid;
-    grid-auto-columns: auto auto auto;
-    grid-auto-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 30em auto auto;
 }
 
 @mixin gridcentered {
     justify-self: center;
     align-self: center;
-}
-
-@mixin body {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: auto;
 }
 
 @mixin flexcentered {
