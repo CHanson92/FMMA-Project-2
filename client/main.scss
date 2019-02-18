@@ -1,5 +1,6 @@
 @import 'grid';
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 .main {
   font-family: 'Ubuntu';
@@ -37,6 +38,40 @@
   }
 }
 
-.GymCard {
-  width: 100%;
+.tabs {
+  max-width: 100%;
+
+  .MuiButtonBase-root-59 {
+    margin-left: 1em;
+  }
+
+  .MuiTypography-body1-74 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  ul {
+    padding-left: 0em;
+    .GymInfo-card-165 {
+        max-width: 100%;
+    }
+  }
+
+  .form {
+    .textfields {
+      .locationcontainer {
+        display: inline-flex;
+        margin-left: 0;
+        .location {
+          display: flex;
+          flex-direction: column;
+          margin-top: 0;
+        }
+      }
+      .description {
+        margin-top: 0;
+        margin-left: 16px;
+      }
+    }
+  }
 }

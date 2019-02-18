@@ -8,6 +8,7 @@ const App = () => (
     <section>
     <p>Find a Martial Arts Gym is here to find your local martial arts gym, whether you are a <br />
        seasoned martial artist, traveller or beginner alike!
+       <i class="material-icons">location_on</i>
     </p>
     </section>
   </header>

@@ -37,6 +37,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 16/02/2018 - Styling changes to the header and changes to the css grid.
 
+18/02/2018 - Styling to Tabs, Find Your Gym and Add Your Gym.
+
 ## Authors
 
 * **Chris Hanson** - *Project owner* - [CHanson92](https://github.com/CHanson92)

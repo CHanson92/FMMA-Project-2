@@ -10,16 +10,8 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faIgloo } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faIgloo)
 
 const styles = theme => ({
-  card: {
-    maxWidth: 400,
-  },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -39,6 +31,8 @@ const styles = theme => ({
   },
 });
 
+const icon = <i class="material-icons">location_on</i>
+
 class GymCard extends React.Component {
   state = { expanded: false };
 
@@ -53,7 +47,7 @@ class GymCard extends React.Component {
       <Card className="GymCard">
         <CardHeader
           title={this.props.gymName}
-          subheader= {this.props.address}
+          subheader= {icon && this.props.address}
         />
         <CardContent>
           <Typography component="p">

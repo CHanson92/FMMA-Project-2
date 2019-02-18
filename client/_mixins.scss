@@ -1,6 +1,5 @@
 @mixin maingrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 30em auto auto;
 }
 

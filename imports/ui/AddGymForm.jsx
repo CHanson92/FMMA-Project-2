@@ -203,8 +203,8 @@ class NewGymForm extends Component {
         <div className="form">
           <FormControl className={classes.formControl}>
           <div className="textfields">
-            <div className={classes.root}>
-              <FormControl variant="outlined" className={classes.formControl}>
+            <div>
+              <FormControl variant="outlined" className="locationcontainer">
                 <InputLabel
                   ref={ref => {
                     this.InputLabelRef = ref;
@@ -216,6 +216,7 @@ class NewGymForm extends Component {
                 <Select
                   native
                   value={this.state.location}
+                  className="location"
                   onChange={this.handleChange('location')}
                   required={this.state.isHidden}
                   input={
@@ -232,9 +233,6 @@ class NewGymForm extends Component {
                   <option value={30}>Thirty</option>
                 </Select>
               </FormControl>
-            </div>
-            <div>
-            <div>
               <Fab 
               onClick={this.toggleHidden.bind(this)}
               size="medium" 
@@ -248,27 +246,28 @@ class NewGymForm extends Component {
               onChange={(e) => this.setState({location: e.target.value})}
               id="outlined-name"
               label="Location"
-              className={classes.textField}
+              className="location"
               margin="normal"
               variant="outlined"
               required={!this.state.isHiddden} 
               />}
             </div>
-            </div>
-              <TextField onChange={(e) => this.setState({gymName: e.target.value})}
+              <TextField 
+                className="name"
+                onChange={(e) => this.setState({gymName: e.target.value})}
                 id="outlined-name"
                 label="Name"
-                className={classes.textField}
                 value={this.state.name}
                 margin="normal"
                 variant="outlined"
                 required={true}
               />
 
-              <TextField onChange={(e) => this.setState({gymAddress: e.target.value})}
+              <TextField 
+                className="address"
+                onChange={(e) => this.setState({gymAddress: e.target.value})}
                 id="outlined-name"
                 label="Address"
-                className={classes.textField}
                 margin="normal"
                 variant="outlined"
                 required={true}
@@ -277,16 +276,17 @@ class NewGymForm extends Component {
                 rowsMax={5}
               />
 
-              <TextField onChange={(e) => this.setState({gymDescription: e.target.value})}
+              <TextField 
+                className="description"
+                onChange={(e) => this.setState({gymDescription: e.target.value})}
                 id="outlined-name"
                 label="Description"
-                className={classes.textField}
                 margin="normal"
                 variant="outlined"
                 required={true}
                 multiline={true}
-                rows={5}
-                rowsMax={5}
+                rows={15}
+                rowsMax={15}
               />
               </div>
           <div className="selecttimepicker">

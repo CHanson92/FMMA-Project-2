@@ -10,6 +10,25 @@
   
     .body {
         grid-row: 2;
+        .tabs {
+            .form {
+                .textfields {
+                    display: grid;
+                    grid-auto-columns: auto;
+                    grid-auto-rows: auto;
+                    .name {
+                        grid-column: 1;
+                    }
+                    .address {
+                        grid-column: 1;
+                    }
+                    .description {
+                        grid-column: 2;
+                        grid-row: 1/4;
+                    }
+                }
+            }
+        }
     }
 
     footer {
