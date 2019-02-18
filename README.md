@@ -48,4 +48,4 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 ## Acknowledgments
 
 * My instructors & classmates at RED Academy for their support.
-* Iva Vokic for helping me to design the web app.
+* [Iva Vokic](https://www.linkedin.com/in/iva-vokic-047652163/) for helping me to design the web app.
