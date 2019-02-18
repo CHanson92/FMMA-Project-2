@@ -14,9 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const styles = theme => ({
-    card: {
-      maxWidth: 400,
-    },
     actions: {
       display: 'flex',
     },
@@ -82,16 +79,19 @@ class GymInfo extends Component {
 
     displayGyms(gyms) {
         const { classes } = this.props;
-        let displayGym = gyms.map((gym) =>
+        let displayGym = gyms.map((gym) => {
+        const icon = <><i className="material-icons">location_on</i>{gym.address}</>
+        return (
             <div>
             <CardHeader
                 title={gym.name}
-                subheader={gym.address}/>
+                subheader={icon}
+                />
             <CardContent>
                 <Typography paragraph>
                 {gym.description}
                 </Typography>
-                <CardActions className={classes.actions} disableActionSpacing>
+                <CardActions className="expandmore" disableActionSpacing>
                     <IconButton
                         className={classnames(classes.expand, {
                         [classes.expandOpen]: this.state.expanded,
@@ -106,7 +106,8 @@ class GymInfo extends Component {
                 {this.displayMartialArtClasses(gym.martialArtClass)}
             </CardContent>
             </div>
-        );
+            );
+        });
 
         return displayGym
     }

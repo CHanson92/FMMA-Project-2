@@ -83,6 +83,9 @@ class NewGymForm extends Component {
     Meteor.call(
       'FMMA.insert', outgoingData
     )
+    let obj = {
+      "location": this.state.location
+    }
   }
 
   handleClose = () => {
@@ -200,179 +203,176 @@ class NewGymForm extends Component {
     }
     return (
       <form>
-        <div className="form">
-          <FormControl className={classes.formControl}>
-          <div className="textfields">
-            <div>
-              <FormControl variant="outlined" className="locationcontainer">
-                <InputLabel
-                  ref={ref => {
-                    this.InputLabelRef = ref;
-                  }}
-                  htmlFor="outlined-location-native-simple"
-                >
-                  Location
-                </InputLabel>
-                <Select
-                  native
-                  value={this.state.location}
-                  className="location"
-                  onChange={this.handleChange('location')}
-                  required={this.state.isHidden}
-                  input={
-                    <OutlinedInput
-                      name="location"
-                      labelWidth={this.state.labelWidth}
-                      id="outlined-location-native-simple"
-                    />
-                  }
-                >
-                  <option value="" />
-                  <option value={10}>Ten</option>
-                  <option value={20}>Twenty</option>
-                  <option value={30}>Thirty</option>
-                </Select>
-              </FormControl>
-              <Fab 
-              onClick={this.toggleHidden.bind(this)}
-              size="medium" 
-              color="primary" 
-              aria-label="Add" 
-              className={classes.margin}>
-                <AddIcon />
-              </Fab>
-              {!this.state.isHidden && 
-              <TextField
-              onChange={(e) => this.setState({location: e.target.value})}
+        <FormControl className={classes.formControl}>
+        <div className="textfields">
+          <div>
+            <FormControl variant="outlined" className="locationcontainer">
+              <InputLabel
+                ref={ref => {
+                  this.InputLabelRef = ref;
+                }}
+                htmlFor="outlined-location-native-simple"
+              >
+                Location
+              </InputLabel>
+              <Select
+                native
+                value={this.state.location}
+                className="location"
+                onChange={this.handleChange('location')}
+                required={this.state.isHidden}
+                input={
+                  <OutlinedInput
+                    name="location"
+                    labelWidth={this.state.labelWidth}
+                    id="outlined-location-native-simple"
+                  />
+                }
+              >
+                <option value="" />
+                <option value={10}>Ten</option>
+                <option value={20}>Twenty</option>
+                <option value={30}>Thirty</option>
+              </Select>
+            </FormControl>
+            <Fab 
+            onClick={this.toggleHidden.bind(this)}
+            size="medium" 
+            color="primary" 
+            aria-label="Add" 
+            className={classes.margin}>
+              <AddIcon />
+            </Fab>
+            {!this.state.isHidden && 
+            <TextField
+            onChange={(e) => this.setState({location: e.target.value})}
+            id="outlined-name"
+            label="Location"
+            className="location"
+            variant="outlined"
+            required={!this.state.isHiddden} 
+            />}
+          </div>
+            <TextField 
+              className="name"
+              onChange={(e) => this.setState({gymName: e.target.value})}
               id="outlined-name"
-              label="Location"
-              className="location"
+              label="Name"
+              value={this.state.name}
               margin="normal"
               variant="outlined"
-              required={!this.state.isHiddden} 
-              />}
+              required={true}
+            />
+
+            <TextField 
+              className="address"
+              onChange={(e) => this.setState({gymAddress: e.target.value})}
+              id="outlined-name"
+              label="Address"
+              margin="normal"
+              variant="outlined"
+              required={true}
+              multiline={true}
+              rows={5}
+              rowsMax={5}
+            />
+
+            <TextField 
+              className="description"
+              onChange={(e) => this.setState({gymDescription: e.target.value})}
+              id="outlined-name"
+              label="Description"
+              margin="normal"
+              variant="outlined"
+              required={true}
+              multiline={true}
+              rows={18}
+              rowsMax={18}
+            />
             </div>
-              <TextField 
-                className="name"
-                onChange={(e) => this.setState({gymName: e.target.value})}
-                id="outlined-name"
-                label="Name"
-                value={this.state.name}
-                margin="normal"
-                variant="outlined"
-                required={true}
-              />
+        <div className="selecttimepicker">
+            <FormControl className={classes.formControl}>
+            <InputLabel>Martial Art</InputLabel>
+            <Select
+              value={this.state.martialArt}
+              onChange={this.handleChange('martialArt')}
+              inputProps={{
+                name: 'martialArt',
+                id: 'martialArt',
+              }}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={'Judo'}>Judo</MenuItem>
+              <MenuItem value={'Brazilian Jiu-Jitsu'}>Brazilian Jiu-Jitsu</MenuItem>
+              <MenuItem value={'Muay Thai'}>Muay Thai</MenuItem>
+            </Select>
+            </FormControl>
 
-              <TextField 
-                className="address"
-                onChange={(e) => this.setState({gymAddress: e.target.value})}
-                id="outlined-name"
-                label="Address"
-                margin="normal"
-                variant="outlined"
-                required={true}
-                multiline={true}
-                rows={5}
-                rowsMax={5}
-              />
+            <FormControl className={classes.formControl}>
+            <InputLabel>Day</InputLabel>
+            <Select
+              value={this.state.sessionDay}
+              onChange={this.handleChange('sessionDay')}
+              inputProps={{
+                name: 'sessionDay',
+                id: 'sessionDay',
+              }}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={'Monday'}>Monday</MenuItem>
+              <MenuItem value={'Tuesday'}>Tuesday</MenuItem>
+              <MenuItem value={'Wednesday'}>Wednesday</MenuItem>
+              <MenuItem value={'Thursday'}>Thursday</MenuItem>
+              <MenuItem value={'Friday'}>Friday</MenuItem>
+              <MenuItem value={'Saturday'}>Saturday</MenuItem>
+              <MenuItem value={'Sunday'}>Sunday</MenuItem>
+            </Select>
+            </FormControl>
 
-              <TextField 
-                className="description"
-                onChange={(e) => this.setState({gymDescription: e.target.value})}
-                id="outlined-name"
-                label="Description"
-                margin="normal"
-                variant="outlined"
-                required={true}
-                multiline={true}
-                rows={15}
-                rowsMax={15}
-              />
-              </div>
-          <div className="selecttimepicker">
-              <FormControl className={classes.formControl}>
-              <InputLabel>Martial Art</InputLabel>
-              <Select
-                value={this.state.martialArt}
-                onChange={this.handleChange('martialArt')}
-                inputProps={{
-                  name: 'martialArt',
-                  id: 'martialArt',
-                }}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={'judo'}>Judo</MenuItem>
-                <MenuItem value={'Brazilian Jiu-Jitsu'}>Brazilian Jiu-Jitsu</MenuItem>
-                <MenuItem value={'muay thai'}>Muay Thai</MenuItem>
-              </Select>
-              </FormControl>
+            <TextField onChange={(e) => this.setState({sessionStart: e.target.value})}
+              id="time"
+              label="Session Start Time"
+              type="time"
+              defaultValue="12:00"
+              style={{marginTop: 8, width: 150}}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              inputProps={{
+                step: 900, // 15 min
+              }}
+            />
 
-              <FormControl className={classes.formControl}>
-              <InputLabel>Day</InputLabel>
-              <Select
-                value={this.state.sessionDay}
-                onChange={this.handleChange('sessionDay')}
-                inputProps={{
-                  name: 'sessionDay',
-                  id: 'sessionDay',
-                }}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={'Monday'}>Monday</MenuItem>
-                <MenuItem value={'Tuesday'}>Tuesday</MenuItem>
-                <MenuItem value={'Wednesday'}>Wednesday</MenuItem>
-                <MenuItem value={'Thursday'}>Thursday</MenuItem>
-                <MenuItem value={'Friday'}>Friday</MenuItem>
-                <MenuItem value={'Saturday'}>Saturday</MenuItem>
-                <MenuItem value={'Sunday'}>Sunday</MenuItem>
-              </Select>
-              </FormControl>
-
-              <TextField onChange={(e) => this.setState({sessionStart: e.target.value})}
-                id="time"
-                label="Session Start Time"
-                type="time"
-                defaultValue="12:00"
-                style={{marginTop: 8, width: 150}}
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                inputProps={{
-                  step: 900, // 15 min
-                }}
-              />
-
-              <TextField onChange={(e) => this.setState({sessionEnd: e.target.value})}
-                id="time"
-                label="Session End Time"
-                type="time"
-                defaultValue="13:00"
-                style={{marginTop: 8, width: 150}}
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                inputProps={{
-                  step: 900, // 15 min
-                }}
-              />
-              {<Fab
-                onClick={this.martialArtCounter.bind(this)}
-                size="medium" 
-                color="primary"
-                aria-label="Add" 
-                className={classes.margin}>
-                <AddIcon />
-              </Fab>}
-              {martialartsessions}
-              </div>
-          </FormControl>
-        </div>
+            <TextField onChange={(e) => this.setState({sessionEnd: e.target.value})}
+              id="time"
+              label="Session End Time"
+              type="time"
+              defaultValue="13:00"
+              style={{marginTop: 8, width: 150}}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              inputProps={{
+                step: 900, // 15 min
+              }}
+            />
+            {<Fab
+              onClick={this.martialArtCounter.bind(this)}
+              size="medium" 
+              color="primary"
+              aria-label="Add" 
+              className={classes.margin}>
+              <AddIcon />
+            </Fab>}
+            {martialartsessions}
+            </div>
+        </FormControl>
         <Button 
           onClick={this.handleGymAdd.bind(this)}
           variant="contained" 

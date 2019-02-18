@@ -11,10 +11,10 @@
     .body {
         grid-row: 2;
         .tabs {
-            .form {
+            form {
                 .textfields {
                     display: grid;
-                    grid-auto-columns: auto;
+                    grid-template-columns: 1fr 1fr;
                     grid-auto-rows: auto;
                     .name {
                         grid-column: 1;

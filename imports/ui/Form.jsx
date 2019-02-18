@@ -5,7 +5,7 @@ class Form extends Component {
   render() {
     return (
       <div className="form">
-        <h3>Want to add your martial arts gym? Add it below!</h3>
+        <h2>Want to add your martial arts gym? Add it below!</h2>
         <AddGymForm />
       </div>
     )

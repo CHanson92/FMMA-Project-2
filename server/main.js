@@ -25,21 +25,24 @@ Meteor.startup(() => {
   }
 })
 
-Meteor.methods({
-  'checkIfLocationExists': function (location) {
-      return (Meteor.location.findOne({location: location})) ? true : false;
-  }
-});
+const checkIfLocationExists = (obj) => {
+  return (FMMA.findOne({location: obj.location}))
+};
 
 Meteor.methods({
   'FMMA.insert'(
     obj
     ) {
- 
+  if(checkIfLocationExists(obj)) {
+    const location = FMMA.findOne({location: obj.location})
+    FMMA.update(
+      { _id: location._id },
+      { $push: { gym: obj.gym[0] } }
+   )
+  } else {
     FMMA.insert({
       location: obj.location,
       gym: obj.gym,
-      
-    });
+    })};
   }
 });

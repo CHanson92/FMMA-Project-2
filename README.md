@@ -39,6 +39,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 18/02/2018 - Styling to Tabs, Find Your Gym and Add Your Gym.
 
+18/02/2018 - Completed styling and if statement inside the server to push data to an existing array if the martial art gym is in the same location.
+
 ## Authors
 
 * **Chris Hanson** - *Project owner* - [CHanson92](https://github.com/CHanson92)
@@ -46,3 +48,4 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 ## Acknowledgments
 
 * My instructors & classmates at RED Academy for their support.
+* Iva Vokic for helping me to design the web app.

@@ -54,23 +54,49 @@
     padding-left: 0em;
     .GymInfo-card-165 {
         max-width: 100%;
+      }
+      .expandmore {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .GymInfo-expand-166 {
+        font-size: 5rem;
+        color: #3f51b5;
+        text-shadow: 2.5px 2.5px black;
+      }
     }
-  }
 
   .form {
-    .textfields {
-      .locationcontainer {
-        display: inline-flex;
-        margin-left: 0;
-        .location {
+    h2 {
+      display: flex;
+      justify-content: center;
+    }
+    form {
+      display: inline-flex;
+      flex-direction: column;
+      width: 100%;
+      .textfields {
+        .locationcontainer {
           display: flex;
-          flex-direction: column;
+          margin-left: 0;
+          margin-bottom: 1em;
+        }
+        button {
+          margin-bottom: 1em;
+        }
+        .MuiFormControl-root-184 {
+            display: flex !important;
+          }
+        .description {
           margin-top: 0;
+          margin-left: 16px;
         }
       }
-      .description {
-        margin-top: 0;
-        margin-left: 16px;
+      .selecttimepicker {
+        margin: 0 auto;
+      }
+      button {
+        margin: 0 auto;
       }
     }
   }
