@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
+import FMMA from '../api/fmma';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
@@ -201,6 +203,9 @@ class NewGymForm extends Component {
         </div>
       )
     }
+    let getLocations = this.props.all.map((all, index) =>
+    <option key={index} value={all.location}>{String(all.location)}</option>
+    )
     return (
       <form>
         <FormControl className={classes.formControl}>
@@ -230,9 +235,7 @@ class NewGymForm extends Component {
                 }
               >
                 <option value="" />
-                <option value={10}>Ten</option>
-                <option value={20}>Twenty</option>
-                <option value={30}>Thirty</option>
+                {getLocations}
               </Select>
             </FormControl>
             <Fab 
@@ -386,4 +389,10 @@ class NewGymForm extends Component {
   }
 }
 
-export default withStyles(styles)(NewGymForm);
+newGymForm = withStyles(styles)(NewGymForm);
+
+export default Locations = withTracker(() => {
+  return {
+    all: FMMA.find().fetch()
+  };
+})(newGymForm);

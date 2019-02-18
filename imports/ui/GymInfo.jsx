@@ -49,7 +49,6 @@ class GymInfo extends Component {
         this.setState(state => ({ expanded: !state.expanded }));
     };
 
-
     componentDidUpdate() {
         this.initSearch();
         if (this.props.searched) {

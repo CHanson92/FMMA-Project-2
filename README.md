@@ -41,6 +41,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 
 18/02/2018 - Completed styling and if statement inside the server to push data to an existing array if the martial art gym is in the same location.
 
+18/02/2018 - Changed location dropdown to show database location values.
+
 ## Authors
 
 * **Chris Hanson** - *Project owner* - [CHanson92](https://github.com/CHanson92)

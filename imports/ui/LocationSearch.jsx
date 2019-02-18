@@ -7,9 +7,7 @@ class GetSearchInput extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
-
     this.state = {input: '', searched: false}
-    console.log(this.props)
     }
 
     handleChange(e) {
