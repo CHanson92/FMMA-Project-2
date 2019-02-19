@@ -16,7 +16,7 @@ const App = () => (
     <Tabs />
     </section>
   </section>
-  <footer>Designed by Chris Hanson</footer>
+  <footer>Designed by <a href="https://github.com/CHanson92">Chris Hanson</a></footer>
   </section>
 );
 
