@@ -65,6 +65,7 @@ class NewGymForm extends Component {
   }
 
   handleGymAdd() {
+    alert('Congratulations! The gym has been uploaded to the database!')
     let outgoingData = {
       "location": this.state.location,
       "gym": [
@@ -144,6 +145,7 @@ class NewGymForm extends Component {
           </MenuItem>
           <MenuItem value={'Judo'}>Judo</MenuItem>
           <MenuItem value={'Brazilian Jiu-Jitsu'}>Brazilian Jiu-Jitsu</MenuItem>
+          <MenuItem value={'Kickboxing'}>Kickboxing</MenuItem>
           <MenuItem value={'Muay Thai'}>Muay Thai</MenuItem>
         </Select>
         </FormControl>
@@ -309,6 +311,7 @@ class NewGymForm extends Component {
               </MenuItem>
               <MenuItem value={'Judo'}>Judo</MenuItem>
               <MenuItem value={'Brazilian Jiu-Jitsu'}>Brazilian Jiu-Jitsu</MenuItem>
+              <MenuItem value={'Kickboxing'}>Kickboxing</MenuItem>
               <MenuItem value={'Muay Thai'}>Muay Thai</MenuItem>
             </Select>
             </FormControl>
@@ -376,7 +379,7 @@ class NewGymForm extends Component {
             {martialartsessions}
             </div>
         </FormControl>
-        <Button 
+        <Button type='reset'
           onClick={this.handleGymAdd.bind(this)}
           variant="contained" 
           color="primary" 

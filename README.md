@@ -2,7 +2,11 @@
 
 This is my project 2 from the App Development course at RED Academy, this is an individual project that we were allowed to work on. In this project I have used Meteor.js, React, HTML/CSS/SASS and MongoDB as my database. 
 
-The idea for this project comes from my hobby of martial arts, in that it can be difficult to find a martial arts gym near you partiuclarly if you are travelling as people tend to post on forums or look online atr old websites that people haven't updated in a long time. I decided to design this app so somebody can find their closest martial arts gym based on their location.
+The idea for this project comes from my hobby of martial arts, in that it can be difficult to find a martial arts gym near you particularly if you are travelling as people tend to post on forums or look online at old websites that people haven't updated in a long time. I decided to design this app so somebody can find their closest martial arts gym based on their location.
+
+## Future Features
+
+* Search based on current location.
 
 ## Built With
 
@@ -42,6 +46,8 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 18/02/2018 - Completed styling and if statement inside the server to push data to an existing array if the martial art gym is in the same location.
 
 18/02/2018 - Changed location dropdown to show database location values.
+
+19/02/2018 - Added alert and reset form on the Add Form Button
 
 ## Authors
 
