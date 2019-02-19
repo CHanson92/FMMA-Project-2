@@ -4,10 +4,6 @@ This is my project 2 from the App Development course at RED Academy, this is an 
 
 The idea for this project comes from my hobby of martial arts, in that it can be difficult to find a martial arts gym near you particularly if you are travelling as people tend to post on forums or look online at old websites that people haven't updated in a long time. I decided to design this app so somebody can find their closest martial arts gym based on their location.
 
-## Future Features
-
-* Search based on current location.
-
 ## Built With
 
 * [Meteor.js] - The web framework used.
@@ -48,6 +44,12 @@ The idea for this project comes from my hobby of martial arts, in that it can be
 18/02/2018 - Changed location dropdown to show database location values.
 
 19/02/2018 - Added alert and reset form on the Add Form Button
+
+## Future Features
+
+* Search based on current location.
+* Ability to enter multiple martial arts under 1 gym.
+* Extend the search engine capabilities to search for martial arts.
 
 ## Authors
 
